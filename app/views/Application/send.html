@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+#{set title:'写下你想对她说的话' /}
+    
+
+<style type="text/css">
+#loveMessage {
+	border: none;
+	height: 325px;
+	width: 550px;
+	max-height: 325px;
+	max-width: 550px;
+	resize: none;
+	background: transparent;
+	line-height: 40px;
+	font-size: 22px;
+	outline: none;
+	overflow: hidden;
+	background-image: url(@{'/public/img/bg.jpg'});
+	padding-top:60px;
+	padding-left:40px;
+	color:#FF6180;
+}
+</style>
+      <form class="form-signin" method="POST" action="@{Application.send()}">
+        <h2 class="form-signin-heading">向他/她发送秋波</h2>
+        <input type="text"  name="send.toEmail" class="input-block-level" placeholder="xxx@qq.com" value="${Send?.toEmail}"/>
+        <textarea row="30" name="send.content" value="${Send?.content}" placeholder="写下你想说的话" id="loveMessage" class="input-block-level" ></textarea>
+         <label class="checkbox">
+          <input name="send.isShow"  type="checkbox" value="remember-me" checked="${Send?.isShow}"> 是否在表白墙展示，这会公开你的联系方式及表白信息? <a href="#">事例 >></a> 
+        </label>
+        <button class="btn btn-large btn-primary" type="submit">发送</button>
+      </form>
+
