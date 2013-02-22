@@ -1,12 +1,10 @@
 package controllers;
 import java.util.*;
-
-import play.Logger;
 import play.data.validation.*;
 import play.mvc.*;
 import models.*;
 
-public class Application extends Controller {
+public class Passport extends Controller {
 
 	@Before
 		static void addUser() {
@@ -22,14 +20,13 @@ public class Application extends Controller {
 			return renderArgs.get("user", User.class);
 		}
 		String email = session.get("user");
-		Logger.info("^^^^^^^^^^"+email );
+		System.out.println("^^^^^^^^^^"+email );
 		if(email != null) {
 			return User.find("email", email).first();
 		} 
 		return null;
 	}
 	public static void index() {
-		Logger.info("^^^^^^^^^^开始进入系统" );
 		render();
 	}
 
