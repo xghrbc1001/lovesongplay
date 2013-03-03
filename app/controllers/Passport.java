@@ -59,8 +59,6 @@ public class Passport extends Application {
 
 	public static void login() {
 		render();
-		// Logger.info("=========logining"+user.email +"  :" + user.password);
-		// Application.index();
 	}
 
 	public static void logout() {

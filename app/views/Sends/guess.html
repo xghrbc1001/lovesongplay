@@ -1,7 +1,7 @@
 #{extends 'main.html' /} 
 #{set title:'猜猜他是谁' /}
 
-<form class="form-signin" method="GET" action="@{Sends.guess()}">
+<form class="form-signin" method="GET" action="@{Sends.guess()}" style="max-width: 500px;">
 	<h2>${send?.toEmail},您好</h2>
 	<h2 class="form-signin-heading">猜猜你喜欢的人是他吗?^_^</h2>
 	<h2>他的邮箱</h2>

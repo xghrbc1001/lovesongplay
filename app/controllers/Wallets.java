@@ -11,7 +11,7 @@ import utils.*;
 public class Wallets extends Application {
 
 	public static void wallet() {
-		List<Send> sends = Send.find("isShow", true).fetch(10);
+		List<Send> sends = Send.find("isShow", true).fetch(12);
 		render(sends);
 	}
 

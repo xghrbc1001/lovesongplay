@@ -11,7 +11,6 @@ import utils.*;
 public class Inboxs extends Application {
 	public static void receive() {
 		User user = connected();
-		System.out.println("user.email" + user.email);
 		List<Send> sends = Send.find("toEmail", user.email).fetch();
 		render("@receive", sends);
 	}

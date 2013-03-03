@@ -18,10 +18,7 @@ public class Sends extends Application {
 		if (validation.hasErrors()) {
 			flash.error("oops", "错误");
 			Application.index();
-		} else {
-			System.out.println("--------------no validation errors");
 		}
-
 		toSend(email);
 
 	}
@@ -33,7 +30,6 @@ public class Sends extends Application {
 	}
 
 	public static void send(Send send) {
-		Logger.info("===========start send" + send.isShow);
 		User user = connected();
 		send.user = user;
 		send.status = 0;
