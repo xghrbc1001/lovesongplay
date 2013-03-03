@@ -1,4 +1,5 @@
 package controllers;
+
 import java.util.*;
 import notifiers.*;
 import play.Logger;
@@ -10,14 +11,12 @@ import utils.*;
 public class Wallets extends Application {
 
 	public static void wallet() {
-	         // List<Send> sends=Send.all().fetch(10);
-		
-	         List<Send> sends=Send.find("isShow",true).fetch(10);
+		List<Send> sends = Send.find("isShow", true).fetch(10);
 		render(sends);
 	}
-	
+
 	public static void search(String email) {
-		List<Send> sends=Send.find("toEmail",email).fetch();
-		render("@wallet",sends);
-}
+		List<Send> sends = Send.find("toEmail", email).fetch();
+		render("@wallet", sends);
+	}
 }

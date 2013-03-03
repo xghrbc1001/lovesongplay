@@ -1,13 +1,15 @@
-#{extends 'main.html' /}
+#{extends 'main.html' /} 
 #{set title:'登录' /}
 
 <form class="form-signin" method="POST" action="@{Passport.isLogin()}">
-        <h2 class="form-signin-heading">登录</h2>
-        <input type="text" name="email" value="${email}" class="input-block-level" placeholder="xxx@qq.com">
-        <input type="password" name="password" class="input-block-level" placeholder="密码" value="${password}">
-        <label class="checkbox">
-          <input type="checkbox" value="remember-me"> 记住我
-        </label>
-        <button class="btn btn-large btn-primary" type="submit">登录</button><a href="">忘记密码</a>
-      </form>
+	<h2 class="form-signin-heading">登录</h2>
+	<input type="text" name="email" value="${email}"
+		class="input-block-level" placeholder="xxx@qq.com"> <input
+		type="password" name="password" class="input-block-level"
+		placeholder="密码" value="${password}"> <label class="checkbox">
+		<input type="checkbox" value="remember-me"> 记住我
+	</label>
+	<button class="btn btn-large btn-primary" type="submit">登录</button>
+	<a href="">忘记密码</a>
+</form>
 

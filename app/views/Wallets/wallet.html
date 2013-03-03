@@ -1,45 +1,39 @@
-#{extends 'main.html' /}
-#{set title:'暗恋表白' /}
-
-#{ifnot sends}
+#{extends 'main.html' /} 
+#{set title:'暗恋表白' /} #{ifnot sends}
 <div class="hero-unit">
-    <p>
-        在我们的系统中,暂时找不到相关的信息，你可以邀请他一起来玩。
-  <a class="btn btn-primary" href="@{Invites.invite()}">邀请>></a>
-    </p>
+	<p>
+		在我们的系统中,暂时找不到相关的信息，你可以邀请他一起来玩。 <a class="btn btn-primary"
+			href="@{Invites.invite()}">邀请>></a>
+	</p>
 </div>
-#{/ifnot}
-#{else}
-            <ul class="thumbnails">
-            #{list sends, as:'send'}
+#{/ifnot} #{else}
+<ul class="thumbnails">
+	#{list sends, as:'send'}
 
-
-
-   <li class="span3" >
-                <div class="thumbnail">
-                  <div class="caption" style="padding: 36px 30px 35px 30px;position:relative;">
-                    <img class="ribbon" src="@{'/public/img/badge.png'}" style="position:absolute;top:0;right:0;">
-                    <div style="line-height:30px;">
-                    <!--	<h4 style="color:#1189D9;">From</h4>-->
-                    	<h4 style="color:#1189D9;">408866256@qq.com</h4>
-                    	<h4 style="color:#ff6699; margin-top:16px;margin-bottom:16px;">${send?.toEmail}</h4>
-<pre class="" style="border:none;">${send?.content}</pre>
-                    </div>
-                    <div style="margin-top:20px;text-align:right;">
-                    	<!--<a href="#" class="btn btn-primary">给他加油(50)</a> -->
-                    	<br/>
-                    	<h5 style="color:#cccccc;">${send?.createTime}</h5>
-<!--                     	<br/> -->
-<!--                     	<i class="icon-arrow-down icon-pink"> </i>   -->
-<!--                     	<br/> -->
-<!--                     	<a href="#" class="btn btn-danger">72663829</a> -->
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-
-
+	<li class="span3">
+		<div class="thumbnail">
+			<div class="caption"
+				style="padding: 36px 30px 35px 30px; position: relative;">
+				<img class="ribbon" src="@{'/public/img/badge.png'}"
+					style="position: absolute; top: 0; right: 0;">
+				<div style="line-height: 30px;">
+					<!--	<h4 style="color:#1189D9;">From</h4>-->
+					<h4 style="color: #1189D9;">408866256@qq.com</h4>
+					<h4 style="color: #ff6699; margin-top: 16px; margin-bottom: 16px;">${send?.toEmail}</h4>
+					<pre class="" style="border: none;">${send?.content}</pre>
+				</div>
+				<div style="margin-top: 20px; text-align: right;">
+					<!--<a href="#" class="btn btn-primary">给他加油(50)</a> -->
+					<br />
+					<h5 style="color: #cccccc;">${send?.createTime}</h5>
+					<!--                     	<br/> -->
+					<!--                     	<i class="icon-arrow-down icon-pink"> </i>   -->
+					<!--                     	<br/> -->
+					<!--                     	<a href="#" class="btn btn-danger">72663829</a> -->
+				</div>
+			</div>
+		</div>
+	</li>
 
 
 
@@ -60,7 +54,10 @@
 
 
 
-              <!-- <li class="span3" >
+
+
+
+	<!-- <li class="span3" >
                 <div class="thumbnail">
                   <div class="caption" style="padding: 36px 30px 35px 30px;">
                     <img class="ribbon" src="@{'/public/img/badge.png'}" style="position:absolute;top:0;right:0;">
@@ -79,21 +76,24 @@
                   </div>
                 </div>
               </li>-->
-            #{/list}
-            </ul>
-            <p><button type="submit" class="btn btn-primary btn-block btn-large" data-original-title=""> 载入更多. . .</button></p>
-            
+	#{/list}
+</ul>
+<p>
+	<button type="submit" class="btn btn-primary btn-block btn-large"
+		data-original-title="">载入更多. . .</button>
+</p>
 
-	<!-- import js -->
-	<script src="@{'/public/js/jquery.masonry.min.js'}"></script>
-	 <script>
-    $(function(){
-        var $container = $('.thumbnails');
-        $container.imagesLoaded( function(){
-        $container.masonry({
-              itemSelector : '.span3'
-             });
-        });
-   });
-    </script>
+
+<!-- import js -->
+<script src="@{'/public/js/jquery.masonry.min.js'}"></script>
+<script>
+	$(function() {
+		var $container = $('.thumbnails');
+		$container.imagesLoaded(function() {
+			$container.masonry({
+				itemSelector : '.span3'
+			});
+		});
+	});
+</script>
 #{/else}

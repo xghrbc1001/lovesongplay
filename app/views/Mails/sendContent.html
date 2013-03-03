@@ -1,9 +1,11 @@
 <html>
 <body>
-	<p>您好，<b>${user?.email}</b></p>
-            <p>有人暗恋你，他向你发送了表白邮件,</p>
-		<a href="http://localhost:9000/guess/${user?.uuid}">http://localhost:9000/guess/${user?.uuid}</a>
-		<br/>
+	<p>
+		您好，<b>${user?.email}</b>
+	</p>
+	<p>有人暗恋你，他向你发送了表白邮件,</p>
+	<a href="http://localhost:9000/guess/${user?.uuid}">http://localhost:9000/guess/${user?.uuid}</a>
+	<br />
 	<a href="@{Sends.guess(send?.id)}">猜猜他是谁>> </a>
 	<pre>
 		${send?.content}

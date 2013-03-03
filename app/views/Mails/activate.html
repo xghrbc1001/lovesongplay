@@ -1,9 +1,11 @@
 <html>
 <body>
-	<p>您好，<b>${user?.email}</b></p>
-            <p>点击以下链接激活您的帐户! </p>
-		<a href="http://localhost:9000/register/activate/${user?.uuid}">http://localhost:9000/passport/register/activi/${user?.uuid}</a>
-<br/>
-		<a href="@{Passport.activate(user?.uuid)}">@{Passport.activate(user?.uuid)}</a>
+	<p>
+		您好，<b>${user?.email}</b>
+	</p>
+	<p>点击以下链接激活您的帐户!</p>
+	<a href="http://localhost:9000/register/activate/${user?.uuid}">http://localhost:9000/passport/register/activi/${user?.uuid}</a>
+	<br />
+	<a href="@{Passport.activate(user?.uuid)}">@{Passport.activate(user?.uuid)}</a>
 </html>
 </html>

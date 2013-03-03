@@ -61,85 +61,80 @@ body {
 				<a class="brand" href="@{Application.index()}">暗恋表白</a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li class="@("active".when(nav == "signup"))"><a href="@{Inboxs.inbox()}">发件箱</a></li>
-						<li class="@("active".when(nav == "signup"))"><a href="@{Wallets.wallet()}">表白墙</a></li>
-						<li class="@("active".when(nav == "signup"))"><a href="@{Sends.toSend()}">向她表白</a></li>
-						<li class="@("active".when(nav == "signup"))"><a href="@{Invites.invite()}">邀请好友</a></li>
-<!--						<li  class="@("active".when(nav == "signup"))"><a href="">邀请好友</a></li>-->
+						<li class="@(" active".when(nav=="signup"))"><a
+							href="@{Inboxs.inbox()}">发件箱</a></li>
+						<li class="@(" active".when(nav=="signup"))"><a
+							href="@{Wallets.wallet()}">表白墙</a></li>
+						<li class="@(" active".when(nav=="signup"))"><a
+							href="@{Sends.toSend()}">向她表白</a></li>
+						<li class="@(" active".when(nav=="signup"))"><a
+							href="@{Invites.invite()}">邀请好友</a></li>
+						<!--						<li  class="@("active".when(nav == "signup"))"><a href="">邀请好友</a></li>-->
 					</ul>
 
 
-				    <form class="form-search navbar-search pull-left" method="GET" action="@{Wallets.search()}">
-    <input type="text" name="email" class="input-larger search-query" placeholder="123456@qq.com 查询是否被暗恋过">
-    <!--<button type="submit" class="btn">查询是否被暗恋过</button>-->
-    </form>
-<ul class="nav pull-right">
-            #{if user?.id}
+					<form class="form-search navbar-search pull-left" method="GET"
+						action="@{Wallets.search()}">
+						<input type="text" name="email" class="input-larger search-query"
+							placeholder="123456@qq.com 查询是否被暗恋过">
+						<!--<button type="submit" class="btn">查询是否被暗恋过</button>-->
+					</form>
+					<ul class="nav pull-right">
+						#{if user?.id}
 
-<li class="dropdown">
-	<a href="#" class="dropdown-toggle" data-toggle="dropdown">${user?.email}
-	<b class="caret"></b></a>
-	<ul class="dropdown-menu">
-		<li><a href="@{Passport.logout()}">登出</a></li>
-	</ul>
-</li>
-            #{/if}
-	    #{else}
-    <li  class="@("active".when(nav == "signup"))">
-        <a href="@{Passport.login()}">登录</a>
-    </li>
-    <li  class="@("active".when(nav == "signup"))">
-        <a href="@{Passport.register()}">注册</a>
-    </li>
-	   #{/else}
-    </ul>
-    </div>
-    </div>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">${user?.email} <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="@{Passport.logout()}">登出</a></li>
+							</ul></li> #{/if} #{else}
+						<li class="@(" active".when(nav=="signup"))"><a
+							href="@{Passport.login()}">登录</a></li>
+						<li class="@(" active".when(nav=="signup"))"><a
+							href="@{Passport.register()}">注册</a></li> #{/else}
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 
 	<div class="container">
 
-            #{if flash.error}
-                <p class="fError">
-                    <strong>${flash.error}</strong>
-                </p>
-            #{/if}
-            #{if flash.success}
-                <p class="fSuccess">
-                    <strong>${flash.success}</strong>
-                </p>
-            #{/if}
-	#{ifErrors}
+		#{if flash.error}
+		<p class="fError">
+			<strong>${flash.error}</strong>
+		</p>
+		#{/if} #{if flash.success}
+		<p class="fSuccess">
+			<strong>${flash.success}</strong>
+		</p>
+		#{/if} #{ifErrors}
 		<div class="error">
-		<div class="alert alert-info">
-		  <button type="button" class="close" data-dismiss="alert">&times;</button>
-		  <strong>警告!</strong> 请检查邮件地址是否正确
-		</div>
-		
-		<div class="alert alert-error">
-		  <button type="button" class="close" data-dismiss="alert">&times;</button>
-		  <strong>错误!</strong> 登录失败，请检查用户名或密码是否正确
-		</div>
-		
-		<div class="alert alert-success">
-		  <button type="button" class="close" data-dismiss="alert">&times;</button>
-		  <strong>成功!</strong> 操作成功!
-		</div>
+			<div class="alert alert-info">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>警告!</strong> 请检查邮件地址是否正确
+			</div>
 
-		<ul>
-			#{errors}
-			<li>${error}</li>
-			#{/errors}
-		</ul>
-		</div>
-	#{/ifErrors}
+			<div class="alert alert-error">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>错误!</strong> 登录失败，请检查用户名或密码是否正确
+			</div>
 
-	#{doLayout /}
+			<div class="alert alert-success">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>成功!</strong> 操作成功!
+			</div>
+
+			<ul>
+				#{errors}
+				<li>${error}</li> #{/errors}
+			</ul>
+		</div>
+		#{/ifErrors} #{doLayout /}
 	</div>
 
 	<!-- import js -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script src="@{'/public/js/bootstrap.min.js'}"></script>
 </body>
 </html>

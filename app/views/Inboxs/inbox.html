@@ -1,47 +1,36 @@
-#{extends 'main.html' /}
+#{extends 'main.html' /} 
 #{set title:'暗恋表白' /}
 
 <div class="tabbable tabs-left">
-<ul class="nav nav-tabs">
-<li class="active"><a href="#lA" data-toggle="tab">己发送</a></li>
-<li class=""><a href="#lB" data-toggle="tab">接收</a></li>
-</ul>
-<div class="tab-content">
-<div class="tab-pane active" id="lA">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#lA" data-toggle="tab">己发送</a></li>
+		<li class=""><a href="#lB" data-toggle="tab">接收</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="lA">
 
-<table class="table table-striped table-hover">
-<thead>
-<td>收件人</td>
-<td>内容</td>
-<td>状态</td>
-</thead>
-#{list sends, as:'send'}
-<tr class="success">
-<td>${send?.toEmail}</td>
-<td>${send?.content}</td>
-<td>
-#{if send?.status==0}
-未查看：对方还没有打开这封暗恋通知
-#{/if}
-#{if send?.status==1}
-失败：对方还没有打开这封暗恋通知
-#{/if}
-#{if send?.status==2}
-成功：
-#{/if}
-#{else}
-其它状态	
-#{/else}
-</td>
-</tr>
+			<table class="table table-striped table-hover">
+				<thead>
+					<td>收件人</td>
+					<td>内容</td>
+					<td>状态</td>
+				</thead>
+				#{list sends, as:'send'}
+				<tr class="success">
+					<td>${send?.toEmail}</td>
+					<td>${send?.content}</td>
+					<td>#{if send?.status==0} 未查看：对方还没有打开这封暗恋通知 #{/if} #{if
+						send?.status==1} 失败：对方还没有打开这封暗恋通知 #{/if} #{if send?.status==2} 成功：
+						#{/if} #{else} 其它状态 #{/else}</td>
+				</tr>
 
-#{/list}
-</table>
-</div>
-<div class="tab-pane" id="lB">
-<p>Howdy, I'm in Section B.</p>
-</div>
-</div>	
+				#{/list}
+			</table>
+		</div>
+		<div class="tab-pane" id="lB">
+			<p>Howdy, I'm in Section B.</p>
+		</div>
+	</div>
 </div>
 
 
