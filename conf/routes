@@ -4,11 +4,17 @@
 
 # Home page
 GET     /                                       Application.index
-POST    /startSend                              Application.startSend
-GET	/register                               Application.register
-POST    /register				Application.saveUser
-GET	/inbox					Application.inbox
-
+POST    /startSend                              Sends.startSend
+GET     /guess/{uuid}					Sends.toGuess
+GET     /guess/{uuid}/{email}					Sends.guess
+GET	/register                               Passport.register
+POST    /register				Passport.saveUser
+GET     /register/activate/{uuid}        Passport.activate
+GET     /login                         Passport.login
+POST     /isLogin                         Passport.isLogin
+GET	/inbox					Inboxs.inbox
+GET     /receive				Application.receive
+GET     /wallet					Wallets.wallet
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

@@ -1,3 +1,5 @@
 *.class
 tmp/
 db/
+bin/
+bytecode/

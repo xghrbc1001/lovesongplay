@@ -1,104 +1,100 @@
-#{extends 'main.html' /}
-#{set title:'暗恋表白' /}
+#{extends 'main.html' /} #{set title:'暗恋表白' /}
 
 <style type="text/css">
-      body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #f5f5f5;
-      }
-
-      .form-signin {
-        max-width: 300px;
-        padding: 19px 29px 29px;
-        margin: 0 auto 20px;
-        background-color: #fff;
-        border: 1px solid #e5e5e5;
-        -webkit-border-radius: 5px;
-           -moz-border-radius: 5px;
-                border-radius: 5px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                box-shadow: 0 1px 2px rgba(0,0,0,.05);
-      }
-      .form-signin .form-signin-heading,
-      .form-signin .checkbox {
-        margin-bottom: 10px;
-      }
-      .form-signin input[type="text"],
-      .form-signin input[type="password"] {
-        font-size: 16px;
-        height: auto;
-        margin-bottom: 15px;
-        padding: 7px 9px;
-      }
-      
-      #logo {
-    background-color: #f73b3b;
-    border-radius: 65px;
-    -moz-border-radius: 65px;
-    -webkit-border-radius: 65px;
-    color: #fff;
-    font-family: 'Lobster', cursive;
-    font-size: 25px;
-    height: 130px;
-    line-height: 130px;
-    margin: 0 auto;
-    text-align: center;
-    width: 130px;
+body {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #f5f5f5;
 }
 
-    </style>
-    
-     <script type="text/javascript">
-        $(function(){
-        window.prettyPrint && prettyPrint()
-            var logoStyle = $('#logo')[0].style;
-            var headingStyle = $('h1')[0].style;
-            $('#cp').colorpicker().on('changeColor', function(ev){
-                logoStyle.backgroundColor = ev.color.toHex();
-                headingStyle.color = ev.color.toHex();
-            });
-        });
-    </script>
-    
-	<div class="hero-unit">
-		 <div class="row">
-                <div id="logo">
-                    Love
-                </div>
-                <div style="text-align:center;margin-top:1.5em;">
-                	<h4>如果你默默喜欢她，殊不知她也在默默的喜欢你</h4>
-         			<h3>若互有好感，埋葬缘份便是罪过</h3>
-         		</div>
-         		<div style="text-align:center;">
-				    <form method="POST" action="@{Application.startSend()}">
-	    
-	         			<input type="text" name="email" value="${email}" class="input-xxlarge" placeholder="输入他/她的QQ号码" style="margin:0;height:35px;line-height:35px;font-size:30px;color:#cccccc;"/>
-			    		<button class="btn btn-primary btn-large" type="submit">开始行动</button>
-			    	</form>
-		    	</div>
-		    	 <div style="text-align:center;margin-top:1.5em;">
-         		
-         		</div>
-		    	<div style="text-align:center;color:#cccccc;margin-top:3px;">
-		    		<p>
-<!-- 		    			<span class="badge badge-success">1</span>  -->
-		    			发送匿名邮件给他
-		    		</p>
-		    		<p>
-<!-- 		    			<span class="badge badge-warning">2</span>  -->
-		    			收到邮件的他，写下他喜欢的人
-		    		</p>
-		    		<p>
-<!-- 		    			<span class="badge badge-info">3</span>  -->
-		    			若你们互相喜欢，下一步，你该知道怎么做
-		    		</p>
-		    		<p>
-<!-- 		    			<span class="badge badge-info">4</span>  -->
-		    			若没成功，也没关系，这将会是永久的秘密
-		    		</p>
-		    	</div>
-         </div>
-		
-    </div>
+.form-signin {
+	max-width: 300px;
+	padding: 19px 29px 29px;
+	margin: 0 auto 20px;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+.form-signin .form-signin-heading,.form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signin input[type="text"],.form-signin input[type="password"] {
+	font-size: 16px;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 7px 9px;
+}
+
+#logo {
+	background-color: #f73b3b;
+	border-radius: 65px;
+	-moz-border-radius: 65px;
+	-webkit-border-radius: 65px;
+	color: #fff;
+	font-family: 'Lobster', cursive;
+	font-size: 25px;
+	height: 130px;
+	line-height: 130px;
+	margin: 0 auto;
+	text-align: center;
+	width: 130px;
+}
+</style>
+
+<script type="text/javascript">
+	$(function() {
+		window.prettyPrint && prettyPrint()
+		var logoStyle = $('#logo')[0].style;
+		var headingStyle = $('h1')[0].style;
+		$('#cp').colorpicker().on('changeColor', function(ev) {
+			logoStyle.backgroundColor = ev.color.toHex();
+			headingStyle.color = ev.color.toHex();
+		});
+	});
+</script>
+
+<div class="hero-unit">
+	<div class="row">
+		<div id="logo">Love</div>
+		<div style="text-align: center; margin-top: 1.5em;">
+			<h4>如果你默默喜欢她，殊不知她也在默默的喜欢你</h4>
+			<h3>若互有好感，埋葬缘份便是罪过</h3>
+		</div>
+		<div style="text-align: center;">
+			<form method="POST" action="@{Sends.startSend()}">
+
+				<input type="text" name="email" value="${email}"
+					class="input-xxlarge" placeholder="输入他/她的QQ号码"
+					style="margin: 0; height: 35px; line-height: 35px; font-size: 30px; color: #cccccc;" />
+				<button class="btn btn-primary btn-large" type="submit">开始行动</button>
+			</form>
+		</div>
+		<div style="text-align: center; margin-top: 1.5em;"></div>
+		<div style="text-align: center; color: #cccccc; margin-top: 3px;">
+			<p>
+				<!-- 		    			<span class="badge badge-success">1</span>  -->
+				发送匿名邮件给他
+			</p>
+			<p>
+				<!-- 		    			<span class="badge badge-warning">2</span>  -->
+				收到邮件的他，写下他喜欢的人
+			</p>
+			<p>
+				<!-- 		    			<span class="badge badge-info">3</span>  -->
+				若你们互相喜欢，下一步，你该知道怎么做
+			</p>
+			<p>
+				<!-- 		    			<span class="badge badge-info">4</span>  -->
+				若没成功，也没关系，这将会是永久的秘密
+			</p>
+		</div>
+	</div>
+
+</div>

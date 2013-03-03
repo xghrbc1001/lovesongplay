@@ -1,0 +1,18 @@
+#{extends 'main.html' /}
+#{set title:'用户尚未激活' /}
+
+
+	<div class="hero-unit">
+<p>
+
+${email},
+<br />
+
+ &nbsp;&nbsp;您好，
+   您己完成注册的第一步，但是还没有激活您的帐户。请去邮箱激活您的帐户，若收件箱中没有邮件，请查看是否被当成了垃圾邮件。
+</p>
+<p>
+  若没有收到邮件，您可<a class="btn btn-primary" href="http://localhost:9000/passport/register/activi/${user?.uuid}">重新发送激活邮件</a>
+
+</p>
+</div>
