@@ -9,6 +9,7 @@ import java.sql.*;
 import play.*;
 import java.util.*;
 import org.hibernate.annotations.GenericGenerator;
+import play.data.validation.*;
 
 @Entity
 public class Send extends GenericModel {
@@ -23,6 +24,7 @@ public class Send extends GenericModel {
 	@ManyToOne
 	public User user;
 
+	@Required @Email
 	public String toEmail;
 
 	public String content;

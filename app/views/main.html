@@ -48,8 +48,7 @@ body {
 
 <body>
 
-	<!-- Navbar
-    ================================================== -->
+	<!-- ================================================== -->
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
@@ -69,15 +68,12 @@ body {
 							href="@{Sends.toSend()}">向她表白</a></li>
 						<li class="@(" active".when(nav=="signup"))"><a
 							href="@{Invites.invite()}">邀请好友</a></li>
-						<!--						<li  class="@("active".when(nav == "signup"))"><a href="">邀请好友</a></li>-->
 					</ul>
 
 
 					<form class="form-search navbar-search pull-left" method="GET"
 						action="@{Wallets.search()}">
-						<input type="text" name="email" class="input-larger search-query"
-							placeholder="123456@qq.com 查询是否被暗恋过">
-						<!--<button type="submit" class="btn">查询是否被暗恋过</button>-->
+						<input type="text" name="email" class="input-larger search-query" placeholder="xxx@qq.com 查询是否被暗恋过">
 					</form>
 					<ul class="nav pull-right">
 						#{if user?.id}
@@ -100,34 +96,25 @@ body {
 	<div class="container">
 
 		#{if flash.error}
-		<p class="fError">
-			<strong>${flash.error}</strong>
-		</p>
-		#{/if} #{if flash.success}
-		<p class="fSuccess">
-			<strong>${flash.success}</strong>
-		</p>
-		#{/if} #{ifErrors}
+		<div class="alert alert-error">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>失败!</strong> ${flash.error}
+		</div>
+		#{/if}
+		#{if flash.success}
+		<div class="alert alert-success">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>成功!</strong> ${flash.success}
+		</div>
+		#{/if}
+                #{ifErrors}
 		<div class="error">
+		#{errors}
 			<div class="alert alert-info">
-				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>警告!</strong> 请检查邮件地址是否正确
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <strong>输入错误!</strong> ${error}
 			</div>
-
-			<div class="alert alert-error">
-				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>错误!</strong> 登录失败，请检查用户名或密码是否正确
-			</div>
-
-			<div class="alert alert-success">
-				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>成功!</strong> 操作成功!
-			</div>
-
-			<ul>
-				#{errors}
-				<li>${error}</li> #{/errors}
-			</ul>
+		#{/errors}
 		</div>
 		#{/ifErrors} #{doLayout /}
 	</div>

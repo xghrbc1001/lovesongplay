@@ -16,20 +16,34 @@ public class Passport extends Application {
 	}
 
 	public static void saveUser(User user, String verifyPassword) {
+		// input check
+		validation.required(user.email);
+		validation.email(user.email);
+		validation.min(user.password,6);
+		if (validation.hasErrors()) {
+			Logger.info("用户注册输入有错误");
+			render("@register");
+		}
+	
+		// 此邮件是否被注册过	
+		User userTemp=User.find("byEmailAndDeleted",user.email,false).first();
+		if (userTemp != null ) {
+			flash.error("此邮件己被注册");
+		        render("@register");	
+		}
+
 		user.uuid = UUIDUtil.generate();
 		user.create();
 
 		Logger.info("register" + user.activated);
+
 		// 放致session中
 		session.put("user", user.email);
 
-		// System.out.println("session"+session.get("user"));
-		flash.success("Welcome, " + user.email);
-
 		// 发送激活邮件
 		Mails.activate(user);
+		flash.success("己成功注册激活邮件至您邮件中:" + user.email);
 		Passport.notactivate(user.email);
-		render("@index");
 	}
 
 	public static void activate(String uuid) {

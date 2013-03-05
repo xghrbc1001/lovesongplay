@@ -3,3 +3,4 @@
 #
 
 validation.email=%s 不是正确的email地址 
+validation.min=输入长度不能少于 %s
