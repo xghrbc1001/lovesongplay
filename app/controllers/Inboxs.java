@@ -16,9 +16,9 @@ public class Inboxs extends Application {
 	}
 
 	public static void inbox() {
-		List<Send> sends = Send.findAll();
-		for (Send send : sends) {
-		}
-		render(sends);
+		User user = connected();
+		List<Send> sends = Send.find("user.email", user.email).fetch();
+		List<Send> receives = Send.find("toEmail", user.email).fetch();
+		render(sends,receives);
 	}
 }
