@@ -10,7 +10,7 @@ public class Mails extends Mailer {
 	public static void activate(User user) {
 		setSubject("邮件注册激活");
 		addRecipient(user.email);
-		setFrom("ijavamm@qq.com");
+		setFrom("暗恋表白<ijavamm@qq.com>");
 		// setFrom("JavaMM@qq.com"); // 报501错误
 		send(user);
 	}
@@ -18,7 +18,7 @@ public class Mails extends Mailer {
 	public static void sendContent(Send send) {
 		setSubject("有人暗恋你");
 		addRecipient(send.toEmail);
-		setFrom("ijavamm@qq.com");
+		setFrom("暗恋表白<ijavamm@qq.com>");
 		// setFrom("JavaMM@qq.com"); // 报501错误
 		send(send);
 	}

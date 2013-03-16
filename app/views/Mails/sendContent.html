@@ -1,13 +1,13 @@
 <html>
 <body>
-	<p>
-		您好，<b>${user?.email}</b>
-	</p>
-	<p>有人暗恋你，他向你发送了表白邮件,</p>
-	<a href="http://localhost:9000/guess/${send?.id}">http://localhost:9000/guess/${send?.id}</a>
-	<br />
-	<a href="@{Sends.guess(send?.id)}">猜猜他是谁>> </a>
-	<pre>
-		${send?.content}
-	</pre>
+	<dl>
+		<dt>${send?.toEmail}:</dt>
+		<dd>您好!</dd>
+		<dd>有人暗恋你，他向你发送了表白邮件,</dd>
+		<dd><pre>${send?.content}</pre><dd>
+		<dd><a href="@@{Sends.toGuess(send?.id)}">猜猜他是谁>> </a></dd>
+		<dd>若无法点击，请复制到浏览器中</dd>
+		<dd>请不要回复此邮件^_^</dd>
+	</dl>
+<body>
 </html>

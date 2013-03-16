@@ -60,20 +60,28 @@ public class Sends extends Application {
 		Send send = Send.find("id", uuid).first();
 		if (send == null) {
 			// 没有此邮件
+			flash.error("没有此邮件");
 		}
 		// check
 		// 猜机会己用完
 		if (send.chance < 1) {
+			send.status = -1;
+			send.save();
 			// message
+			flash.error("每人只有三次机会哦,您的机会己用完");
 		}
 
 		if (email.equals(send.user.email)) {
 			// 设置状态成功
 			send.status = 2;
 			send.save();
+			flash.success("哇塞，恭喜，你猜中了，就是他：" + send.user.email);
 		} else {
 			// 将猜机会减1
 			send.chance = send.chance - 1;
+			send.status=1;
+			send.save();
+			flash.error("不正确，总共3次机会，你还有"+send.chance+"次机会");
 		}
 
 		render(send);

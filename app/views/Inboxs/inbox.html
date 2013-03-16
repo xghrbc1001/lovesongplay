@@ -1,5 +1,5 @@
 #{extends 'main.html' /} 
-#{set title:'暗恋表白' /}
+#{set title:'收件箱' /}
 
 <div class="tabbable tabs-left">
 	<ul class="nav nav-tabs">
@@ -19,9 +19,20 @@
 				<tr class="success">
 					<td>${send?.toEmail}</td>
 					<td>${send?.content}</td>
-					<td>#{if send?.status==0} 未查看：对方还没有打开这封暗恋通知 #{/if} #{if
-						send?.status==1} 失败：对方还没有打开这封暗恋通知 #{/if} #{if send?.status==2} 成功：你们互相喜欢
-						#{/if} #{else} 其它状态 #{/else}</td>
+					<td>
+						#{if send?.status==-1} 
+							失败：对方可能喜欢的暂时不是你
+						#{/if} 
+						#{if send?.status==0} 
+							未查看：对方还没有打开这封暗恋通知 
+						#{/if} 
+						#{if send?.status==1} 
+							进行中：对方正在猜
+						#{/if} 
+						#{if send?.status==2} 
+							成功：你们互相喜欢
+						#{/if}
+					</td>
 				</tr>
 
 				#{/list}
@@ -39,14 +50,26 @@
 					<td>
 					    #{if receive?.status==2} 
 						${receive?.user.email}
+					    #{/if}
 					    #{else}
 						保密
-					    #{/if}
+					    #{/else}
 					</td>
 					<td>${receive?.content}</td>
-					<td>#{if receive?.status==0} 未查看：对方还没有打开这封暗恋通知 #{/if} #{if
-						receive?.status==1} 失败：对方还没有打开这封暗恋通知 #{/if} #{if receive?.status==2} 成功：你们互相喜欢
-						#{/if} #{else} 其它状态 #{/else}</td>
+					<td>
+						#{if receive?.status==-1} 
+							失败：对方可能喜欢的暂时不是你
+						#{/if} 
+						#{if receive?.status==0} 
+							未查看：对方还没有打开这封暗恋通知 
+						#{/if} 
+						#{if receive?.status==1} 
+							进行中：对方正在进行中
+						#{/if} 
+						#{if receive?.status==2} 
+							成功：你们互相喜欢
+						#{/if}
+					</td>
 				</tr>
 
 				#{/list}

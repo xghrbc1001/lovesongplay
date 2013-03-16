@@ -2,20 +2,15 @@
 #{set title:'猜猜他是谁' /}
 
 <form class="form-signin" method="GET" action="@{Sends.guess()}" style="max-width: 500px;">
-	<h2>${send?.toEmail},您好</h2>
-	<h2 class="form-signin-heading">猜猜你喜欢的人是他吗?^_^</h2>
-	<h2>他的邮箱</h2>
+	<h3>${send?.toEmail},您好</h3>
+	<h4 class="form-signin-heading">猜猜你喜欢的人是他吗?^_^</h4>
 	<pre>
 		${send?.content}
 		uuid: ${uuid}
 	</pre>
 	<input type="hidden" name="uuid" value="${uuid}" /> <input type="text"
 		name="email" value="${email}" class="input-block-level"
-		placeholder="xxx@qq.com" />
-	<h3>如果发送这条暗恋通知给你的人，刚好就是这个Ta，我们会帮你们表白。否则我们会帮你保密！</h3>
-	<h3>总共3次机会，你还有${send?.chance}次机会</h3>
-	<h3>发这份通知给你的不是Ta，你还有${send?.chance}次机会</h3>
-	<h3>抱歉，你的机会已用完。但是你可以给你的心上人定制发送通知。</h3>
+		placeholder="他的邮箱xxx@qq.com" />
 	<button class="btn btn-large btn-primary" type="submit">提交</button>
 
 </form>

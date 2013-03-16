@@ -1,11 +1,13 @@
 <html>
 <body>
-	<p>
-		您好，<b>${user?.email}</b>
-	</p>
-	<p>点击以下链接激活您的帐户!</p>
-	<a href="http://localhost:9000/register/activate/${user?.uuid}">http://localhost:9000/passport/register/activi/${user?.uuid}</a>
-	<br />
-	<a href="@{Passport.activate(user?.uuid)}">@{Passport.activate(user?.uuid)}</a>
+	<dl>
+		<dt>${user?.email}:</dt>
+		<dd>您好!</dd>
+		<dd>请点击以下链接激活您的帐户!
+			<a href="@@{Passport.activate(user?.uuid)}">@@{Passport.activate(user?.uuid)}</a>
+		</dd>
+		<dd>若无法点击，请复制到浏览器中</dd>
+		<dd>请不要回复此邮件^_^</dd>
+	</dl>
 </html>
 </html>
