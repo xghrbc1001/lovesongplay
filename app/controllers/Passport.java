@@ -67,8 +67,8 @@ public class Passport extends Application {
 		render();
 	}
 
-	public static void notactivate(String email) {
-		render(email);
+	public static void notactivate(String yx) {
+		render(yx);
 	}
 
 	public static void login() {
@@ -78,6 +78,10 @@ public class Passport extends Application {
 	public static void logout() {
 		session.clear();
 		Application.index();
+	}
+
+	public static void losepwd() {
+		Passport.login();
 	}
 
 	public static void isLogin(String email, String password) {

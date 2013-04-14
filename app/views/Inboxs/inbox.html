@@ -52,7 +52,7 @@
 						${receive?.user.email}
 					    #{/if}
 					    #{else}
-						保密
+						<a href="@@{Sends.toGuess(send?.id)}">猜猜他是谁>> </a></dd>
 					    #{/else}
 					</td>
 					<td>${receive?.content}</td>

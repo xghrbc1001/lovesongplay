@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="暗变表白，若互有好感，埋葬缘份便是罪过">
+<meta name="keywords" content="暗恋帮,暗恋表白,暗恋告白,如何表白,表白技巧" />
+<meta name="description" content="暗恋帮，帮助暗恋的人表白。通过发送匿名邮件方式，收到邮件后，对方猜其所喜欢的人，若相互喜欢，你知道该怎么做，否则将会是永远的秘密，见面也不至于尴尬" />
 <title>#{get 'title' /}</title>
 
 <!--[if lt IE 9]>
@@ -57,7 +58,7 @@ body {
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="brand" href="@{Application.index()}">暗恋表白</a>
+				<a class="brand" href="@{Application.index()}">暗恋帮</a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li class="@(" active".when(nav=="signup"))"><a
@@ -66,14 +67,14 @@ body {
 							href="@{Wallets.wallet()}">表白墙</a></li>
 						<li class="@(" active".when(nav=="signup"))"><a
 							href="@{Sends.toSend()}">向她表白</a></li>
-						<li class="@(" active".when(nav=="signup"))"><a
-							href="@{Invites.invite()}">邀请好友</a></li>
+<!--						<li class="@(" active".when(nav=="signup"))"><a
+							href="@{Invites.invite()}">邀请好友</a></li> -->
 					</ul>
 
 
 					<form class="form-search navbar-search pull-left" method="GET"
 						action="@{Wallets.search()}">
-						<input type="text" name="email" class="input-larger search-query" placeholder="xxx@qq.com 查询是否被暗恋过">
+						<input type="text" name="email" class="input-larger search-query" placeholder="5201314@qq.com 查询是否被暗恋过">
 					</form>
 					<ul class="nav pull-right">
 						#{if user?.id}
@@ -81,6 +82,7 @@ body {
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">${user?.email} <b class="caret"></b></a>
 							<ul class="dropdown-menu">
+								<li><a href="@{Passport.losepwd()}">忘记密码</a></li>
 								<li><a href="@{Passport.logout()}">登出</a></li>
 							</ul></li> #{/if} #{else}
 						<li class="@(" active".when(nav=="signup"))"><a
