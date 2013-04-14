@@ -15,8 +15,8 @@ public class Wallets extends Application {
 		render(sends);
 	}
 
-	public static void search(String email) {
-		List<Send> sends = Send.find("toEmail", email).fetch();
+	public static void search(String yx) {
+		List<Send> sends = Send.find("toEmail", yx).fetch();
 		render("@wallet", sends);
 	}
 }
